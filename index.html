@@ -13,10 +13,13 @@
      <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
 
      <script src="https://telegram.org/js/telegram-web-app.js"></script>
+     <link  href="/path/to/cropper.css" rel="stylesheet">
+     <script src="/path/to/cropper.js"></script>
 
      <script>
          tg = window.Telegram.WebApp
-
+		 tg.expand()
+		 
      </script>
  </div>
 </body>
