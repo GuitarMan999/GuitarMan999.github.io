@@ -3,23 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Chil</title>
+
+	<link  href="cropper.css" rel="stylesheet">
+     <script src="cropper.js"></script>
 </head>
 <body>
  <div id="main">
-     <p>вариант 1</p>
-     <button id="b1">выбрать</button>
+     <input type="file" id="imageInput" accept="image/*">
 
-     <p>вариант 2</p>
-     <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*">
-
-     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-     <link  href="/path/to/cropper.css" rel="stylesheet">
-     <script src="/path/to/cropper.js"></script>
+    <img id="imagePreview" src="" alt="Image Preview" style="display:none; margin-top: 20px; max-width: 100%;">
 
      <script>
          tg = window.Telegram.WebApp
 		 tg.expand()
-		 
+
+	// load image
+        const imageInput = document.getElementById('imageInput');
+        const imagePreview = document.getElementById('imagePreview');
+
+        imageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(file);
+            }
+        });
+	// load image
+	     
      </script>
  </div>
 </body>
