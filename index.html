@@ -2,42 +2,39 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Chil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Preview</title>
 </head>
 <body>
- <div id="main">
-     <input type="file" id="imageInput" accept="image/*">
+    <h1>Image Preview</h1>
+    
+    <!-- Input field to select image -->
+    <input type="file" id="imageInput" accept="image/*">
 
-    <img id="imagePreview" src="https://img.freepik.com/premium-vector/test-icon-illustration_430232-32.jpg" alt="Image Preview" style="display:none; margin-top: 20px; max-width: 100%;">
+    <!-- Image element to display the selected image -->
+    <img id="imagePreview" src="" alt="Image Preview" style="display:none; margin-top: 20px; max-width: 100%;">
 
-	 
-     <script>
-         tg = window.Telegram.WebApp
-		 tg.expand()
-
-	// load image
+    <script>
+        // Get the input and image elements
         const imageInput = document.getElementById('imageInput');
         const imagePreview = document.getElementById('imagePreview');
 
+        // Add an event listener to handle file selection
         imageInput.addEventListener('change', function(event) {
-            const file = event.target.files[0];
+            const file = event.target.files[0]; // Get the selected file
 
             if (file) {
-                const reader = new FileReader();
+                const reader = new FileReader(); // Create a FileReader object
 
+                // Set up a callback function when the file is read
                 reader.onload = function(e) {
-                    imagePreview.src = e.target.result;
-                    imagePreview.style.display = 'block';
+                    imagePreview.src = e.target.result; // Set the src of the image to the file's data URL
+                    imagePreview.style.display = 'block'; // Make the image visible
                 }
 
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(file); // Read the file as a data URL
             }
         });
-	// load image
-	     
-     </script>
-	 <link  href="cropper.css" rel="stylesheet">
-     <script src="cropper.js"></script>
- </div>
+    </script>
 </body>
 </html>
