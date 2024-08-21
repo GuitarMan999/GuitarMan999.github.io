@@ -1,7 +1,3 @@
-body {
- background-image: url("backgroundGreen.svg");
- /*background-color: #aaffaa;*/
-}
 
 .cards {
   display: grid;
