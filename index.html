@@ -4,37 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Preview</title>
+
+     <link rel= "stylesheet" href="/styles/cards.css">
 </head>
 <body>
-    <h1>Image Preview</h1>
-    
-    <!-- Input field to select image -->
-    <input type="file" id="imageInput" accept="image/*">
 
-    <!-- Image element to display the selected image -->
-    <img id="imagePreview" src="" alt="Image Preview" style="display:none; margin-top: 20px; max-width: 100%;">
+    <div class="cards">
+  <!-- Карточка товара -->
+  <div class="card">
+    <img src="/img/src/sp1.png">
+      <p class="card__title">Spotify 20см</p>
+  </div>
+        <!-- Карточка товара -->
+  <div class="card">
+    <img src="/img/src/sp2.png">
+      <p class="card__title">Spotify 15см</p>
+  </div>
+                <!-- Карточка товара -->
+  <div class="card">
+    <img src="/img/src/sp3.png">
+      <p class="card__title">Spotify 2 брелока 5см</p>
+  </div>
+          <!-- Карточка товара -->
+  <div class="card">
+    <img src="/img/src/sp4.png">
+      <p class="card__title">Spotify 35см</p>
+  </div>
+        <!-- Карточка товара -->
+  <div class="card">
+    <img src="/img/src/sp5.png">
+      <p class="card__title">Spotify 45см</p>
+  </div>
+                <!-- Карточка товара -->
+  <div class="card">
+    <img src="/img/src/sp6.png">
+      <p class="card__title">Spotify 4 брелока 5см</p>
+  </div>
+</div>
 
-    <script>
-        // Get the input and image elements
-        const imageInput = document.getElementById('imageInput');
-        const imagePreview = document.getElementById('imagePreview');
+<script>
 
-        // Add an event listener to handle file selection
-        imageInput.addEventListener('change', function(event) {
-            const file = event.target.files[0]; // Get the selected file
-
-            if (file) {
-                const reader = new FileReader(); // Create a FileReader object
-
-                // Set up a callback function when the file is read
-                reader.onload = function(e) {
-                    imagePreview.src = e.target.result; // Set the src of the image to the file's data URL
-                    imagePreview.style.display = 'block'; // Make the image visible
-                }
-
-                reader.readAsDataURL(file); // Read the file as a data URL
-            }
-        });
-    </script>
+</script>
 </body>
 </html>
